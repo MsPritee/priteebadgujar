@@ -1,26 +1,118 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-light text-dark font-space;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-bold mb-8 text-center relative;
+}
+
+.section-title::after {
+  content: '';
+  @apply absolute w-20 h-1 bg-primary left-1/2 -translate-x-1/2 bottom-0 mt-2;
+}
+
+.timeline-badge {
+  @apply absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white z-10;
+}
+
+.timeline-panel {
+  @apply bg-white p-6 rounded-lg shadow-md w-[45%];
+}
+
+@media (max-width: 768px) {
+  .timeline-panel {
+    @apply w-[85%] ml-16;
+  }
+  
+  .timeline-badge {
+    @apply left-0 translate-x-0;
+  }
+}
+
+
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.profile-border {
+  margin-top: 20px;
+  width: 158px;
+  height: 158px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(60deg, #f7f73d, #ff6600, #ffd000, #ff8800);
+  background-size: 300% 300%;
+  animation: gradient-rotate 6s linear infinite;
+  padding: 5px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+
+.skill-icon {
+  @apply w-16 h-16 mx-auto text-4xl flex items-center justify-center bg-white text-primary rounded-full shadow-md transition-all duration-300 hover:scale-110 hover:shadow-lg;
+}
+
+.contact-input {
+  @apply w-full p-3 border-2 border-gray-300 rounded-md focus:outline-none focus:border-primary transition-colors;
+}
+
+.profile-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.orb {
+  @apply absolute rounded-full bg-primary/30 blur-xl;
+  width: 210px;
+  height: 210px;
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
 }
