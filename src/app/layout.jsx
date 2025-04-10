@@ -1,28 +1,20 @@
-
 import "./globals.css";
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import LayoutWrapper from "@/app/LayoutWrapper";
+import ThemeProvider from "@/app/ThemeProvider";
+import { Inter } from "next/font/google";
 
-
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  ttitle: "Pritee Portfolio",
+  title: "Pritee Portfolio",
   description: "Created with Next.js",
 };
 
-
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        {/* Navbar Component */}
-        <Navbar />
-        
-        {/* Page Content */}
-        {children}
-
-        {/* Footer Component */}
-        <Footer />
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );
