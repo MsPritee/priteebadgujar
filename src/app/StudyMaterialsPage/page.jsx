@@ -1,19 +1,37 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import materials from '@/data/studyMaterials';
+// import materials from '@/data/studyMaterials';
+import { getStudyMaterial } from "@/lib/getStudyMaterial";
+
 
 const StudyMaterialsPage = () => {
+
   const [filter, setFilter] = useState('all');
+  const [materials, setMaterials] = useState([]);
 
-  const categories = ['all', ...new Set(materials.map(material => material.category.toLowerCase()))];
+  const categories = [
+    'all', 
+    ...new Set(materials.map(material => material.category.toLowerCase())),
+  ];
   
-  const filteredMaterials = filter === 'all' 
-    ? materials 
-    : materials.filter(material => material.category.toLowerCase() === filter);
+  const filteredMaterials = 
+    filter === 'all' 
+      ? materials 
+      : materials.filter(material => material.category.toLowerCase() === filter);
 
+  
+    useEffect(() => {
+      const getData = async () => {
+        const data = await getStudyMaterial();
+        setMaterials(data);
+      };
+      getData();
+    }, []);
+  
+   
   return (
     <motion.div
       initial={{ opacity: 0 }}
