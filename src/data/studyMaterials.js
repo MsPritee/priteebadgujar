@@ -1,6 +1,5 @@
 const materials = [
   {
-    id: 1,
     title: "Introduction to Python Programming",
     description: "A comprehensive guide to Python basics for beginners.",
     category: "Programming",
@@ -54,7 +53,6 @@ const materials = [
     ],
   },
   {
-    id: 2,
     title: "Game Development Fundamentals",
     description: "Learn the basics of game development with Unity.",
     category: "Game Development",
@@ -107,7 +105,9 @@ const materials = [
       },
     ],
   },
-  // Add more study materials
+
 ];
 
 export default materials;
+
+

@@ -1,6 +1,5 @@
 const projects = [
   {
-    id: 1,
     title: "AI-Powered Game",
     description:
       "A Unity game that uses machine learning for dynamic enemy behavior.",
@@ -34,7 +33,6 @@ const projects = [
     githubUrl: "https://github.com/example/project",
   },
   {
-    id: 2,
     title: "Portfolio Website",
     description:
       "A responsive portfolio website built with React and Tailwind CSS.",
@@ -67,7 +65,6 @@ const projects = [
     demoUrl: "https://demo.example.com",
     githubUrl: "https://github.com/example/project",
   },
-  // Add more projects here
 ];
 
 export default projects;
