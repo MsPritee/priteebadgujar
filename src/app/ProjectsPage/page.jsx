@@ -1,19 +1,32 @@
 "use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import projects from '@/data/projects';
-
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+// import projects from '@/data/projects';
+import { getProjects } from "@/lib/getProjects";
 
 const ProjectsPage = () => {
-  const [filter, setFilter] = useState('all');
+  const [projects, setProjects] = useState([]);
+  const [filter, setFilter] = useState("all");
 
-  const categories = ['all', ...new Set(projects.map(project => project.category.toLowerCase()))];
-  
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category.toLowerCase() === filter);
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getProjects();
+      setProjects(data);
+    };
+    getData();
+  }, []);
+
+  const categories = [
+    "all",
+    ...new Set(projects.map((p) => p.category?.toLowerCase())),
+  ];
+
+  const filteredProjects =
+    filter === "all"
+      ? projects
+      : projects.filter((p) => p.category?.toLowerCase() === filter);
 
   return (
     <motion.div
@@ -25,7 +38,9 @@ const ProjectsPage = () => {
     >
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-kaushan text-white mb-4">My Projects</h1>
+          <h1 className="text-4xl md:text-5xl font-kaushan text-white mb-4">
+            My Projects
+          </h1>
           <p className="text-white/80 max-w-2xl mx-auto">
             Showcasing my work in game development, web applications, and more.
           </p>
@@ -43,8 +58,8 @@ const ProjectsPage = () => {
                   onClick={() => setFilter(category)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                     filter === category
-                      ? 'bg-primary text-white'
-                      : 'bg-white text-gray-700 hover:bg-gray-100'
+                      ? "bg-primary text-white"
+                      : "bg-white text-gray-700 hover:bg-gray-100"
                   }`}
                 >
                   {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -55,7 +70,7 @@ const ProjectsPage = () => {
 
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map(project => (
+            {filteredProjects.map((project) => (
               <Link
                 href={`/ProjectsPage/${project.id}`}
                 key={project.id}
