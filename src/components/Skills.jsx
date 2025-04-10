@@ -1,20 +1,34 @@
 import React from 'react';
+import { 
+  SiPython,
+  SiC,
+  SiCplusplus,
+  SiHtml5,
+  SiCss3,
+  SiBootstrap,
+  SiReact,
+  SiJavascript,
+  SiAndroid,
+  SiUbuntu,
+  SiMysql,
+ } from 'react-icons/si';
+import { FaUnity } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const Skills = () => {
   const skills = [
-    { name: 'Python', icon: 'devicon-python-plain' },
-    { name: 'C', icon: 'devicon-c-plain' },
-    { name: 'C#', icon: 'devicon-csharp-plain' },
-    { name: 'Unity3D', icon: 'game-controller' },
-    { name: 'HTML5', icon: 'devicon-html5-plain' },
-    { name: 'CSS3', icon: 'devicon-css3-plain' },
-    { name: 'Bootstrap', icon: 'devicon-bootstrap-plain' },
-    { name: 'React Native', icon: 'devicon-react-original' },
-    { name: 'JavaScript', icon: 'devicon-javascript-plain' },
-    { name: 'Android', icon: 'devicon-android-plain' },
-    { name: 'Ubuntu', icon: 'devicon-ubuntu-plain' },
-    { name: 'MySQL', icon: 'devicon-mysql-plain' },
+    { name: 'Python', icon: <SiPython /> },
+    { name: 'C', icon: <SiC /> },
+    { name: 'C++', icon: <SiCplusplus  /> },
+    { name: 'Unity3D', icon: <FaUnity /> },
+    { name: 'HTML5', icon: <SiHtml5 /> },
+    { name: 'CSS3', icon: <SiCss3 /> },
+    { name: 'Bootstrap', icon: <SiBootstrap /> },
+    { name: 'React Native', icon: <SiReact /> },
+    { name: 'JavaScript', icon: <SiJavascript /> },
+    { name: 'Android', icon: <SiAndroid /> },
+    { name: 'Ubuntu', icon: <SiUbuntu /> },
+    { name: 'MySQL', icon: <SiMysql /> },
   ];
 
   const container = {
@@ -63,14 +77,7 @@ const Skills = () => {
               className="flex flex-col items-center"
             >
               <div className="skill-icon mb-4 transition duration-300 ease-in-out transform hover:scale-110 hover:shadow-[0_0_15px_#f7f73d] hover:text-yellow-400">
-                {skill.icon === 'game-controller' ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                ) : (
-                  <i className={`${skill.icon} text-4xl`}></i>
-                )}
+              {skill.icon}
               </div>
               <h3 className="text-center font-medium">{skill.name}</h3>
             </motion.div>

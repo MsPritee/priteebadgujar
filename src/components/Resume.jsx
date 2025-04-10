@@ -4,8 +4,26 @@ import { motion } from "framer-motion";
 const Resume = () => {
   const workExperience = [
     {
-      title: "Innomatics Research Lab Intern",
-      company: "Full Stack Developer",
+      title: "Assistant Professor",
+      company: "SPDC",
+      period: "June 2024 - May 2025",
+      description: "Computer Science & Information Technology",
+    },
+    {
+      title: "Planning Engineer",
+      company: "AJRES",
+      period: "Jan 2024-June 2024",
+      description: "",
+    },
+    {
+      title: "React Developer",
+      company: "ProTuple",
+      period: "Summer 2023",
+      description: "",
+    },
+    {
+      title: "Full Stack Developer Intern",
+      company: "Innomatics Research Lab",
       period: "Summer 2023",
       description: "",
     },
@@ -16,11 +34,11 @@ const Resume = () => {
       degree: "Masters in Computer Science",
       institution: "Department of Computer Science, Mumbai University",
       period: "2021 - 2023",
-      description: "Appeared",
+      description: "Percentile: 9.17",
     },
     {
       degree: "Bachelors in Physics",
-      institution: "Zulal Bhilaji Rao Patil College, Dhule",
+      institution: "Zulal Bhilaji Rao Patil College",
       period: "2017 - 2019",
       description: "Percentage: 96.17%",
     },

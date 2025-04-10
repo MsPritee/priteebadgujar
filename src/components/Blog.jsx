@@ -1,12 +1,31 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import BlogPost from '@/components/BlogPost';
-import blogPosts from "@/data/blogpost";
+import { getBlogPosts } from "@/lib/getBlogPosts";
 
 
 const Blog = () => {
   const [filter, setFilter] = useState('all');
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch blog posts on component mount
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const posts = await getBlogPosts();
+        setBlogPosts(posts);
+      } catch (error) {
+        console.error("Error loading blog posts:", error?.message || error);
+
+      }
+    };
+  
+    fetchPosts();
+  }, []);
+  
+
 
   const categories = ['all', ...new Set(blogPosts.map(post => post.category.toLowerCase()))];
   

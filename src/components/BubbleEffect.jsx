@@ -12,7 +12,7 @@ const BubbleEffect = () => {
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
       
-      // Only create bubbles occasionally to avoid too many elements
+      //  create bubbles occasionally
       if (Math.random() > 0.85) {
         createBubble(e.clientX, e.clientY);
       }

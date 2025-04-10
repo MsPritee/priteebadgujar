@@ -6,7 +6,6 @@ import Link from 'next/link';
 
 
 const BlogPost = ({ post }) => {
-  // console.log('Post ID:', post.id);
 
   return (
     <Link href={`/BlogPage/${post.id}`}  key={post.id} >
