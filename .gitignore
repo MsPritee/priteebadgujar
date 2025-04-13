@@ -41,9 +41,9 @@ next-env.d.ts
 
 
 contactFormFirebaseConfig.js
-src/lib/firebase.js
+# src/lib/firebase.js
 git repo final details.txt
-src/lib
+# src/lib
 src/data
 .firebaserc
 firebase.json
@@ -51,5 +51,5 @@ src/app/addDocs
 src/data/blogpost.js
 src/data/projects.js
 src/data/studyMaterials.js
-src/lib/getBlogPosts.js
+# src/lib/getBlogPosts.js
 about this.txt
