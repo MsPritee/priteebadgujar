@@ -2,7 +2,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ navLinkClasses }) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -11,9 +11,10 @@ export default function ThemeToggle() {
   if (!mounted) return null;
 
   return (
+    
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-md"
+      className={navLinkClasses}
     >
       {theme === "dark" ? "🌞 Light" : "🌙 Dark"}
     </button>
