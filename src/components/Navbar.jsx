@@ -65,14 +65,14 @@ const Navbar = ({ scrolled }) => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed w-full z-50 transition-all duration-300 ${
-          scrolled ? "bg-black shadow-md py-2" : "bg-transparent py-4"
+          scrolled ? "bg-white shadow-md py-1" : "bg-transparent py-4"
         }`}
       >
-        <div className="container mx-auto px-4 flex justify-between items-center">
+        <div className="container mx-auto px-2 flex justify-between items-center">
           <Link href="/" className="cursor-pointer">
             <h1
               className={`font-kaushan text-2xl ${
-                scrolled || !isHomePage ? "text-light" : "text-white"
+                scrolled || !isHomePage ? "text-gray-700" : "text-white"
               }`}
             >
               Pritee Badgujar
@@ -103,7 +103,7 @@ const Navbar = ({ scrolled }) => {
                   >
                     About
                     <span
-                      className={`ml-1 inline-block transition-transform duration-200 ${
+                      className={`ml-1 inline-block transition-transform duration-200 text-[10px] ${
                         aboutDropdown ? "rotate-180" : ""
                       }`}
                     >
@@ -153,7 +153,7 @@ const Navbar = ({ scrolled }) => {
                   >
                     Other
                     <span
-                      className={`ml-1 inline-block transition-transform duration-200 ${
+                      className={`ml-1 inline-block transition-transform duration-200 text-[10px] ${
                         otherDropdown ? "rotate-180" : ""
                       }`}
                     >
@@ -180,7 +180,7 @@ const Navbar = ({ scrolled }) => {
 
                 {/* Theme toggle button */}
                 <div>
-                  <ThemeToggle />
+                  <ThemeToggle scrolled={scrolled} navLinkClasses={navLinkClasses} />
                 </div>
               </div>
             ) : (
