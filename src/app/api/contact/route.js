@@ -23,3 +23,8 @@ export async function POST(request) {
     return new Response(JSON.stringify({ success: false, error: "Server error" }), { status: 500 });
   }
 }
+
+
+export async function GET() {
+  return new Response("Hello from API ✅", { status: 200 });
+}
